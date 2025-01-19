@@ -1,0 +1,393 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  display: flex;
+  animation: fadeIn 1s ease-in-out;
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #4CAF50;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  animation: slideInLeft 1s ease-in-out;
+}
+
+.sidebar h1 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.sidebar nav ul a {
+  position: relative;
+  right: 31%;
+  display: block;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background 0.3s, transform 0.2s;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.sidebar nav ul a:hover,
+.sidebar nav ul a.active {
+  background-color: #45a049;
+  transform: translateX(5px);
+}
+
+/* Sidebar Quiz */
+.sidebarquiz {
+  position: sticky;
+  width: 250px;
+  height: 205vh;
+  background-color: #4CAF50;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  animation: slideInLeft 1s ease-in-out;
+}
+
+.sidebarquiz h1 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.sidebarquiz nav ul a {
+  position: relative;
+  right: 31%;
+  display: block;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background 0.3s, transform 0.2s;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.sidebarquiz nav ul a:hover,
+.sidebarquiz nav ul a.active {
+  background-color: #45a049;
+  transform: translateX(5px);
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f4f4f9;
+  animation: slideIn 1s ease-in-out;
+}
+
+.content, .welcome {
+  text-align: center;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.content h2, .welcome h2 {
+  font-size: 2.5em;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.content p, .welcome p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Quiz Section */
+.quiz {
+  text-align: center;
+  margin-top: 20px;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: scaleUp 1s ease-in-out;
+}
+
+.answers {
+  margin-top: 30px;
+  padding: 15px;
+  border: 1px solid #4CAF50;
+  background-color: #f9fff9;
+  max-width: 600px;
+  margin: 30px auto 0;
+  border-radius: 10px;
+  text-align: left;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+/* Bouton de validation */
+.btn-validate {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  animation: bounceIn 1s ease-in-out;
+}
+
+.btn-validate:hover {
+  background-color: #45a049;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-validate:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Style du tableau */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border: 2px solid #4CAF50;
+  animation: fadeIn 1s ease-in-out;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #4CAF50;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+}
+
+tr:hover {
+  background-color: #ddd;
+  animation: highlightRow 0.5s ease-in-out;
+}
+
+/* Style pour les termes et définitions */
+dl {
+  margin: 20px 0;
+}
+
+dt {
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #4CAF50;
+  margin-top: 15px;
+  animation: fadeInDown 0.5s ease-in-out;
+}
+
+dd {
+  margin-left: 20px;
+  font-size: 1em;
+  color: #555;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes highlightRow {
+  from {
+    background-color: #f9f9f9;
+  }
+  to {
+    background-color: #ddd;
+  }
+}
+
+/* Section Hero */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f4f4f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-content h2 {
+  font-size: 2.5em;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #555;
+}
+
+.hero-image {
+  max-width: 40%;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Work Details */
+.work-details {
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.work-details h3 {
+  font-size: 2em;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.work-details ul {
+  list-style: disc;
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+.work-details p {
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Acknowledgments */
+.acknowledgments {
+  padding: 20px;
+  background-color: #f9fff9;
+  border: 1px solid #4CAF50;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.acknowledgments h3 {
+  font-size: 2em;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+.acknowledgments p {
+  line-height: 1.6;
+  color: #555;
+}

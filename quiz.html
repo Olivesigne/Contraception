@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz - Travail de SVT</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="sidebarquiz">
+  <h1>Quiz</h1>
+  <nav>
+    <ul>
+      <a href="index.html">Accueil</a>
+    </ul>
+  </nav>
+</div>
+<main>
+  <section class="quiz">
+    <h2>Quiz Final</h2>
+    <br>
+    <p>Testez vos connaissances en répondant aux questions ci-dessous. Vérifiez vos réponses à la fin du quiz.</p>
+    <br>
+
+    <form id="quizForm">
+      <!-- Question 1 -->
+      <div class="question">
+        <p>1. Laquelle des propositions suivantes un moyen de contraception ?</p>
+        <label><br>
+          <input type="radio" name="q1" value="Seringue"> Seringue
+        </label><br><br>
+        <label>
+          <input type="radio" name="q1" value="Ballon"> Ballon
+        </label><br><br>
+        <label>
+          <input type="radio" name="q1" value="DIU"> DIU
+        </label><br><br>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="question">
+        <p>2. Que signifie l'acronyme DIU ?</p>
+        <label><br>
+          <input type="radio" name="q2" value="Dispositif Intrant-Urètre"> Dispositif Intrant-Urètre
+        </label><br><br>
+        <label>
+          <input type="radio" name="q2" value="Dispositif Intra-Uterriens"> Dispositif Intru-Uterriens
+        </label><br><br>
+        <label>
+          <input type="radio" name="q2" value="Dispositif Intra-Utérin"> Dispositif Intra-Utérin
+        </label><br><br>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="question">
+        <p>3. Combien de % des femmes utilisent le patch ou l'anneau ?</p>
+        <label><br>
+          <input type="radio" name="q3" value="1%"> 1%
+        </label><br><br>
+        <label>
+          <input type="radio" name="q3" value="24%"> 24%
+        </label><br><br>
+        <label>
+          <input type="radio" name="q3" value="49.5%"> 49.5%
+        </label><br><br>
+      </div>
+
+      <div class="question">
+        <p>4. Quels sont les 3 principales choses que nous expliquons pour chaque moyen de contraception ?</p>
+        <label><br>
+          <input type="radio" name="q4" value="Fonctionnement, Avantages et Inconvénients"> Fonctionnement, Avantages et Inconvénients
+        </label><br><br>
+        <label>
+          <input type="radio" name="q4" value="Notre avis, Pourcentage d'utilisation et Fonctionnement"> Notre avis, Pourcentage d'utilisation et Fonctionnement
+        </label><br><br>
+        <label>
+          <input type="radio" name="q4" value="Douleurs, Praticité et Notre Avis"> Douleurs, Praticité et Notre Avis
+        </label><br><br>
+      </div>
+
+      <div class="question">
+        <p>5. Quelle est la probabilité que l'anneau fonctionne ?</p>
+        <label><br>
+          <input type="radio" name="q5" value="99.7%"> 99.7%
+        </label><br><br>
+        <label>
+          <input type="radio" name="q5" value="98.9%"> 98.9%
+        </label><br><br>
+        <label>
+          <input type="radio" name="q5" value="100%"> 100%
+        </label><br><br>
+      </div>
+
+      <button type="submit" class="btn-validate">
+        Vérifier mes réponses
+      </button>
+    </form>
+
+    <div class="answers" style="opacity: 0;">
+      <h3>Correction</h3>
+      <ul id="resultList">
+        <!-- Les résultats seront affichés ici -->
+      </ul>
+      <h4 id="score">Note : 0/3</h4>
+    </div>
+  </section>
+  <br>
+  <button class="btn-validate" type="submit" onclick="nextPage();">Supplément : Lexique</button>
+</main>
+<script>
+  function nextPage() {
+    window.location.href = "Lexique.html"
+  }
+</script>
+<script>
+  const correctAnswers = {
+    q1: "DIU",  // Bonne réponse pour la question 1
+    q2: "Dispositif Intra-Utérin",   // Bonne réponse pour la question 2
+    q3: "1%",  // Bonne réponse pour la question 3
+    q4: "Fonctionnement, Avantages et Inconvénients",
+    q5: "99.7%"
+  };
+
+  const form = document.getElementById('quizForm');
+  const resultList = document.getElementById('resultList');
+  const scoreElement = document.getElementById('score');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Afficher la correction
+    resultList.innerHTML = "";  // Effacer les résultats précédents
+    let score = 0;
+
+    // Vérifier chaque question
+    for (let question in correctAnswers) {
+      const selectedAnswer = form.querySelector(`input[name="${question}"]:checked`);
+
+      if (selectedAnswer) {
+        const userAnswer = selectedAnswer.value;
+        const correctAnswer = correctAnswers[question];
+
+        // Ajouter la réponse de l'utilisateur avec la validation (correct/incorrect) et la bonne réponse
+        const listItem = document.createElement('li');
+        if (userAnswer === correctAnswer) {
+          listItem.innerHTML = `${question} : ${userAnswer} - <strong>✔</strong>`;
+        } else {
+          listItem.innerHTML = `${question} : ${userAnswer} - <strong>✖</strong> (Bonne réponse : ${correctAnswer})`;
+        }
+        resultList.appendChild(listItem);
+
+        // Calculer le score
+        if (userAnswer === correctAnswer) {
+          score++;
+        }
+      } else {
+        // Ajouter un message si l'utilisateur n'a pas répondu à la question
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `${question} : Non répondu - <strong>Incorrect</strong> (Bonne réponse : ${correctAnswers[question]})`;
+        resultList.appendChild(listItem);
+      }
+    }
+
+    // Afficher la note
+    scoreElement.innerHTML = `Note : ${score}/5`;
+
+    // Afficher les résultats
+    document.querySelector('.answers').style.opacity = 1;
+  });
+</script>
+</body>
+</html>
